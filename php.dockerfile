@@ -20,18 +20,20 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd \
     && pecl install xdebug \
-    && docker-php-ext-enable xdebug \
-    && echo "n\
-    xdebug.remote_host = 172.19.0.1 \n\
-    xdebug.default_enable = 1 \n\
-    xdebug.remote_autostart = 1 \n\
-    xdebug.remote_connect_back = 0 \n\
-    xdebug.remote_enable = 1 \n\
-    xdebug.remote_handler = "dbgp" \n\
-    xdebug.remote_port = "9000" \n\
-    xdebug.remote_log = /var/www/html/xdebug.log \n\
-    " >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug
+    && docker-php-ext-enable xdebug
 
+# Config xdebug
+RUN echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_handler=dbgp" >>  /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_port=9000" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_autostart=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.mode=debug" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_connect_back=on" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.start_with_request=yes" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.idekey=VSCODE" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.client_host=host.docker.internal" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.remote_log=/app/storage/logs/xdebug.log" >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
+    && echo "xdebug.default_enable=on" >> /usr/local/etc/php/conf.d/docker-php-ext-docker-php-ext-xdebug.ini
 # Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
