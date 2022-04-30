@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Race;
+use App\Models\Race\Race;
 use Illuminate\Http\Request;
 
 class RaceController extends Controller
@@ -14,7 +14,7 @@ class RaceController extends Controller
      */
     public function index()
     {
-        //
+        // 
     }
 
     /**

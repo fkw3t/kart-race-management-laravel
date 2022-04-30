@@ -6,7 +6,7 @@
 
 <h2>docker</h2>
 
-* [] xdebug
+* [x] xdebug
 
 <h2>project structure</h2>
 

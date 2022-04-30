@@ -8,6 +8,8 @@ services:
         uid: 1000
       context: ./
       dockerfile: php.dockerfile
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
     image: laravel
     container_name: kart-laravel
     restart: unless-stopped
