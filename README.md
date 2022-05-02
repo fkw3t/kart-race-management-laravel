@@ -11,7 +11,7 @@
 <h2>project structure</h2>
 
 * [x] Modelagem do banco
-* [] Modelagem de entidades
+* [x] Modelagem de entidades
 * [] Estruturação de endpoints
     * [] cadastro de usuarios 
     * [] busca de usuarios 
