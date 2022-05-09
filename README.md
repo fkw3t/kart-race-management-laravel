@@ -4,6 +4,8 @@
 
 <h1>todo</h1>
 
+
+
 <h2>docker</h2>
 
 * [x] xdebug
@@ -13,17 +15,18 @@
 * [x] Modelagem do banco
 * [x] Modelagem de entidades
 * [] Estruturação de endpoints
-    * [] cadastro de usuarios 
+    * [x] cadastro de usuarios 
     * [] busca de usuarios 
     * [] busca de stats de usuarios
     * [] atualizacao de usuarios 
     * [] cadastro de corridas 
     * [] busca de corridas 
     * [] busca de stats de corrida
-    * [] atualizacao de corridas 
-    * [] cadastro de stats 
+    * [] atualizacao de corridas **OBS: enviar email p usuario**
+    * [] cadastro de stats **OBS: enviar email p usuario**
+    * [] usar laravel features: api resources, request validations(class), mails senders
 * [] Autenticação - JWT
-* [] Documentação - Swagger
+* [x] Documentação - Swagger
 
 
 <h2>modelagem banco de dados</h2>
@@ -70,11 +73,6 @@
     * todo stats_columns 
     * todo stats_columns 
     * todo stats_columns 
-
-
-
-
-
 
 
 
